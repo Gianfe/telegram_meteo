@@ -1,15 +1,17 @@
+import org.junit.Test;
 import utils.ImageDownloader;
 
 import java.io.IOException;
 
 public class ImageDownloaderTest {
 
-    public static void main(String[] args) throws IOException {
+    @Test
+    public void downloadImageTest() throws IOException {
 
-        String basePath = "D:\\Profiles\\gmeloni\\Documents\\Sorgenti\\Varie\\meteo\\images";
+        String basePath = "/home/gianfe/Documenti/java_workspace/meteo/images";
         String baseUrl = "http://openweathermap.org/img/w/01d.png";
 
-        ImageDownloader.download(baseUrl,basePath+"\\test.png");
+        ImageDownloader.download(baseUrl,basePath+"//test.png");
 
     }
 }

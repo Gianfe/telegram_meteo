@@ -23,6 +23,8 @@ public class ImageDownloader {
             // This will open a socket from client to server
             URL url = new URL(search);
 
+            logger.info("Download image from url: "+ url.toString());
+
             // This user agent is for if the server wants real humans to visit
             String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36";
 
@@ -46,6 +48,8 @@ public class ImageDownloader {
 
             // Looping until server finishes
             while ((length = inputStream.read(buffer)) != -1) {
+
+                logger.info("writing data...length: "+length);
                 // Writing data
                 outputStream.write(buffer, 0, length);
             }
@@ -61,17 +65,4 @@ public class ImageDownloader {
         inputStream.close();
     }
 
-    /*public static void download(String urlString, String pathFile) throws IOException {
-        URL url = new URL(urlString);
-        logger.info(url.toString());
-        InputStream in = new BufferedInputStream(url.openStream());
-        OutputStream out = new BufferedOutputStream(new FileOutputStream(pathFile));
-
-        for (int i; (i = in.read()) != -1; ) {
-            out.write(i);
-        }
-        in.close();
-        out.close();
-
-    }*/
 }
