@@ -6,13 +6,13 @@ import com.jsoniter.any.Any;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WheaterParser {
+public class ForecastParser {
 
-    public static List<ForecastObject> deserialize(String wheaterString){
+    public static List<ForecastObject> deserializeForecast(String forecastString){
 
         List<ForecastObject> forecastObjectList = new ArrayList<>();
 
-        Any any = JsonIterator.deserialize(wheaterString);
+        Any any = JsonIterator.deserialize(forecastString);
         Any listOfForecast = any.get("list");
         List<Any> forecastList = listOfForecast.asList();
         for(int i = 0; i< forecastList.size(); i++){

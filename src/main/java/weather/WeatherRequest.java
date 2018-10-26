@@ -34,8 +34,8 @@ public class WeatherRequest {
 
     public String getWeatherByCityName(String cityName) {
 
-        String theRequest = url + weather+ cityName + "&" +units +"&"+ appId;
-        logger.info("Performing request: " + theRequest);
+        String theRequest = url + weather+"q="+ cityName + "&" +units +"&"+ appId;
+        logger.info("Performing getWeatherByCityName: " + theRequest);
         String theResult = "";
 
         try {
@@ -73,6 +73,53 @@ public class WeatherRequest {
         return theResult;
 
     }
+
+
+    public String getWeatherByGeoCoord(Float latitude, Float longitude) {
+
+        //api.openweathermap.org/data/2.5/weather?lat=35&lon=139
+
+        String theRequest = url + weather+"lat="+latitude + "&lon="+longitude +"&" +units +"&"+ appId;;
+        logger.info("Performing getWeatherByGeoCoord: " + theRequest);
+        String theResult = "";
+
+        try {
+
+            URL url = new URL(theRequest);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+
+            if (conn.getResponseCode() != 200) {
+
+                logger.error("Failed : HTTP error code : " + conn.getResponseCode());
+            }
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(
+                    (conn.getInputStream())));
+
+            String output;
+            while ((output = br.readLine()) != null) {
+                theResult += output;
+            }
+
+            logger.info("Output from server: " + theResult);
+            conn.disconnect();
+
+            return theResult;
+
+        } catch (MalformedURLException e) {
+            logger.error(e.getLocalizedMessage());
+
+        } catch (IOException e) {
+            logger.error(e.getLocalizedMessage());
+        }
+
+        return theResult;
+
+    }
+
+
 
     public String getForecastByGeoCoord(Float latitude, Float longitude){
 

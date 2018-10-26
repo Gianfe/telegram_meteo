@@ -1,6 +1,5 @@
 package telegram;
 
-import config.TelegramConfig;
 import config.YamlConfig;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,11 +8,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Location;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import weather.ForecastObject;
 import weather.WeatherRequest;
-import weather.WheaterParser;
-
-import java.util.List;
 
 
 public class TelegramBot extends TelegramLongPollingBot {
@@ -61,11 +56,11 @@ public class TelegramBot extends TelegramLongPollingBot {
 
             Location location = update.getMessage().getLocation();
             logger.info("Received location \""+location.getLatitude()+","+location.getLongitude()+"\"");
-            String forecastResult = weatherRequest.getForecastByGeoCoord(location.getLatitude(),location.getLongitude());
-            List<ForecastObject> deserializedForecastObject = WheaterParser.deserialize(forecastResult);
-            logger.info("result "+forecastResult);
+            String weatherResult = weatherRequest.getWeatherByGeoCoord(location.getLatitude(),location.getLongitude());
 
-            SendMessage message = new SendMessage()
+            logger.info("result "+weatherResult);
+
+            /*SendMessage message = new SendMessage()
                     .setChatId(update.getMessage().getChatId())
                     .setText(deserializedForecastObject.get(0).getCurrentWeatherDescription());
             try {
@@ -74,7 +69,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
             } catch (TelegramApiException e) {
                 e.printStackTrace();
-            }
+            }*/
 
         }
     }
