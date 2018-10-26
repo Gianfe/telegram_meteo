@@ -4,9 +4,10 @@ import java.util.Map;
 
 public class YamlConfig {
 
-    String version;
-    String released;
-    WeatherConfig openweathermap;
+    private String version;
+    private String released;
+    private WeatherConfig openweathermap;
+    private TelegramConfig telegram;
 
     public String getVersion() {
         return version;
@@ -32,12 +33,21 @@ public class YamlConfig {
         this.openweathermap = openweathermap;
     }
 
+    public TelegramConfig getTelegram() {
+        return telegram;
+    }
+
+    public void setTelegram(TelegramConfig telegram) {
+        this.telegram = telegram;
+    }
+
     @Override
     public String toString() {
         return "YamlConfig{" +
                 "version='" + version + '\'' +
                 ", released='" + released + '\'' +
                 ", openweathermap=" + openweathermap +
+                ", telegram=" + telegram +
                 '}';
     }
 }

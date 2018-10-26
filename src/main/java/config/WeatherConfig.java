@@ -2,11 +2,11 @@ package config;
 
 public class WeatherConfig {
 
-    String url;
-    String appid;
-    String wheater;
-    String forecast;
-    String units;
+    private String url;
+    private String appid;
+    private String wheater;
+    private String forecast;
+    private String units;
 
     public String getAppid() {
         return appid;

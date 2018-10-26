@@ -29,7 +29,7 @@ public class WheatherRequestTestClass {
         config.setUnits("units=metric");
         config.setForecast("forecast?");
         WeatherRequest request = new WeatherRequest(config);
-        request.getForecastByGeoCoord(41.8912288, 12.5744462);
+        request.getForecastByGeoCoord(41.912663f, 12.536675f);
 
 
 
