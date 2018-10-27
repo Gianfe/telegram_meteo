@@ -6,7 +6,7 @@ import com.jsoniter.any.Any;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ForecastParser {
+public class OpenWeatherParser {
 
     public static List<ForecastObject> deserializeForecast(String forecastString){
 

@@ -1,0 +1,1 @@
+http://api.openweathermap.org/data/2.5/weather?lat=41.912663&lon=12.536675&units=metric&appid=

@@ -19,7 +19,7 @@ public class WeatherRequestTestClass {
     }
 
     @Test
-    public void testGetWeatherBGeoCoord() {
+    public void testGetWeatherByGeoCoord() {
 
         WeatherConfig config = new WeatherConfig();
         config.setAppid("appid=96508ef365164a7643f9a49fb8c5b0bd");
