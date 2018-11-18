@@ -78,6 +78,8 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         }
 
+
+
         // We check if the update has a message and the message has text
         /*if (update.hasMessage() && update.getMessage().hasText()) {
 
