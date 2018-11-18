@@ -2,24 +2,82 @@ package weather;
 
 public class WeatherObject {
 
-    private String timestampString;
+    private Float latitude;
+    private Float longitude;
+    private int id;
+    private String weatherMain;
+    private String  weatherDescription;
+    private String weatherIcon;
+    private Float temperature;
+    private Float windSpeed;
     private long currentDt;
-    private float currentTemp ;
-    private int currentWeatherId;
-    private String currentWeatherMain;
-    private String currentWeatherDescription ;
-    private String currentWeatherIcon ;
 
     public WeatherObject() {
+
     }
 
-
-    public String getTimestampString() {
-        return timestampString;
+    public Float getLatitude() {
+        return latitude;
     }
 
-    public void setTimestampString(String timestampString) {
-        this.timestampString = timestampString;
+    public void setLatitude(Float latitude) {
+        this.latitude = latitude;
+    }
+
+    public Float getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Float longitude) {
+        this.longitude = longitude;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getWeatherMain() {
+        return weatherMain;
+    }
+
+    public void setWeatherMain(String weatherMain) {
+        this.weatherMain = weatherMain;
+    }
+
+    public String getWeatherDescription() {
+        return weatherDescription;
+    }
+
+    public void setWeatherDescription(String weatherDescription) {
+        this.weatherDescription = weatherDescription;
+    }
+
+    public String getWeatherIcon() {
+        return weatherIcon;
+    }
+
+    public void setWeatherIcon(String weatherIcon) {
+        this.weatherIcon = weatherIcon;
+    }
+
+    public Float getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(Float temperature) {
+        this.temperature = temperature;
+    }
+
+    public Float getWindSpeed() {
+        return windSpeed;
+    }
+
+    public void setWindSpeed(Float windSpeed) {
+        this.windSpeed = windSpeed;
     }
 
     public long getCurrentDt() {
@@ -30,56 +88,18 @@ public class WeatherObject {
         this.currentDt = currentDt;
     }
 
-    public float getCurrentTemp() {
-        return currentTemp;
-    }
-
-    public void setCurrentTemp(float currentTemp) {
-        this.currentTemp = currentTemp;
-    }
-
-    public int getCurrentWeatherId() {
-        return currentWeatherId;
-    }
-
-    public void setCurrentWeatherId(int currentWeatherId) {
-        this.currentWeatherId = currentWeatherId;
-    }
-
-    public String getCurrentWeatherMain() {
-        return currentWeatherMain;
-    }
-
-    public void setCurrentWeatherMain(String currentWeatherMain) {
-        this.currentWeatherMain = currentWeatherMain;
-    }
-
-    public String getCurrentWeatherDescription() {
-        return currentWeatherDescription;
-    }
-
-    public void setCurrentWeatherDescription(String currentWeatherDescription) {
-        this.currentWeatherDescription = currentWeatherDescription;
-    }
-
-    public String getCurrentWeatherIcon() {
-        return currentWeatherIcon;
-    }
-
-    public void setCurrentWeatherIcon(String currentWeatherIcon) {
-        this.currentWeatherIcon = currentWeatherIcon;
-    }
-
     @Override
     public String toString() {
-        return "ForecastObject{" +
-                "timestampString='" + timestampString + '\'' +
+        return "WeatherObject{" +
+                "latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", id=" + id +
+                ", weatherMain='" + weatherMain + '\'' +
+                ", weatherDescription='" + weatherDescription + '\'' +
+                ", weatherIcon='" + weatherIcon + '\'' +
+                ", temperature=" + temperature +
+                ", windSpeed=" + windSpeed +
                 ", currentDt=" + currentDt +
-                ", currentTemp=" + currentTemp +
-                ", currentWeatherId=" + currentWeatherId +
-                ", currentWeatherMain='" + currentWeatherMain + '\'' +
-                ", currentWeatherDescription='" + currentWeatherDescription + '\'' +
-                ", currentWeatherIcon='" + currentWeatherIcon + '\'' +
                 '}';
     }
 }

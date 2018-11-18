@@ -8,14 +8,14 @@ import java.util.List;
 
 public class OpenWeatherParser {
 
-    public static List<ForecastObject> deserializeForecast(String forecastString){
+    public static List<ForecastObject> deserializeForecast(String forecastString) {
 
         List<ForecastObject> forecastObjectList = new ArrayList<>();
 
         Any any = JsonIterator.deserialize(forecastString);
         Any listOfForecast = any.get("list");
         List<Any> forecastList = listOfForecast.asList();
-        for(int i = 0; i< forecastList.size(); i++){
+        for (int i = 0; i < forecastList.size(); i++) {
 
             ForecastObject tempForeastObject = new ForecastObject();
 
@@ -43,7 +43,27 @@ public class OpenWeatherParser {
 
         }
 
-        return  forecastObjectList;
+        return forecastObjectList;
+
+    }
+
+    public static WeatherObject deserializeWeather(String weatherString) {
+
+        WeatherObject theWeather = new WeatherObject();
+        Any any = JsonIterator.deserialize(weatherString);
+
+        theWeather.setLatitude(any.get("coord").get("lat").toFloat());
+        theWeather.setLongitude(any.get("coord").get("lon").toFloat());
+        theWeather.setId(any.get("weather").get("id").toInt());
+        theWeather.setWeatherMain(any.get("weather").get(0).get("main").toString());
+        theWeather.setWeatherDescription(any.get("weather").get(0).get("description").toString());
+        theWeather.setWeatherIcon(any.get("weather").get(0).get("icon").toString());
+        theWeather.setTemperature(any.get("main").get("temp").toFloat());
+        theWeather.setWindSpeed(any.get("wind").get("speed").toFloat());
+        theWeather.setCurrentDt(any.get("dt").toLong());
+
+        return theWeather;
+
 
     }
 

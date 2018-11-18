@@ -8,6 +8,7 @@ public class YamlConfig {
     private String released;
     private WeatherConfig openweathermap;
     private TelegramConfig telegram;
+    private MongoConfig mongo;
 
     public String getVersion() {
         return version;
@@ -39,7 +40,17 @@ public class YamlConfig {
 
     public void setTelegram(TelegramConfig telegram) {
         this.telegram = telegram;
+
     }
+
+    public MongoConfig getMongo() {
+        return mongo;
+    }
+
+    public void setMongo(MongoConfig mongo) {
+        this.mongo = mongo;
+    }
+
 
     @Override
     public String toString() {
@@ -48,6 +59,7 @@ public class YamlConfig {
                 ", released='" + released + '\'' +
                 ", openweathermap=" + openweathermap +
                 ", telegram=" + telegram +
+                ", mongo=" + mongo +
                 '}';
     }
 }
